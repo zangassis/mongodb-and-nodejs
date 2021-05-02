@@ -1,0 +1,5 @@
+npm install mongodb
+
+npm list mongodb
+
+node demo.js
