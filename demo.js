@@ -9,6 +9,8 @@ async function main() {
     try {
         await client.connect();
 
+        await fiendOneListingByName(client, "Infinite Views");
+
         await createMultipleListings(client, [
             {
                 name: "Infinite Views",
@@ -44,17 +46,29 @@ async function main() {
 
 main().catch(console.error);
 
+async function fiendOneListingByName(client, nameOfListing) {
+
+ const result = await client.db("sample_airbnb").collection("listingsAndReviews").findOne({name: nameOfListing});
+
+ if (result) {
+   console.log(`Found a listing in the collection with the name '${nameOfListing}'`);
+   console.log(result);
+ }
+ else {
+   console.log(`No listings found with the name '${nameOfListing}'`);
+ }
+}
+
 async function createMultipleListings(client, newListings) {
+
     const result = await client.db("sample_airbnb").collection("listingsAndReviews").insertMany(newListings)
-    
     console.log(`${result.insertedCount} new listings created with the following id(s):`);
-    
     console.log(result.insertedIds);
 }
 
 async function createListing(client, newListing) {
-   const result = await client.db("sample_airbnb").collection("listingsAndReviews").insertOne(newListing);
 
+   const result = await client.db("sample_airbnb").collection("listingsAndReviews").insertOne(newListing);
    console.log(`New listing created with the following id: ${result.insertedId}`);
 }
 
@@ -66,4 +80,3 @@ async function listDatabases(client) {
        console.log(`- ${db.name}`);
    });
 }
-

@@ -1,0 +1,23 @@
+{
+  "name": "mongodb-and-nodejs",
+  "version": "1.0.0",
+  "description": "Connecting &amp; CRUD Operations with MongoDB and NodeJS",
+  "main": "demo.js",
+  "dependencies": {
+    "mongodb": "^3.6.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zangassis/mongodb-and-nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zangassis/mongodb-and-nodejs/issues"
+  },
+  "homepage": "https://github.com/zangassis/mongodb-and-nodejs#readme"
+}
